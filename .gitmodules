@@ -3,4 +3,7 @@
 	url = git@github.com:charitan-go/auth-server.git
 [submodule "profile-server"]
 	path = profile-server
-	url = git@github.com:charitan-go/profile-server.git
+  url = git@github.com:charitan-go/profile-server.git
+[submodule "charitan-api-gateway"]
+  path = charitan-api-gateway  
+  url = git@github.com:charitan-go/charitan-api-gateway.git
