@@ -1,0 +1,29 @@
+include:
+  - ./server/compose-profile.yml
+  - ./server/compose-auth.yml
+  - ./api-gateway/compose-charitan-api-gateway.yml
+
+services:
+  service-registry:
+    container_name: service-registry
+    image: hashicorp/consul
+    ports:
+      - 8500:8500
+    healthcheck:
+      # return information about the status of the Consul cluster https://www.consul.io/api/status.html
+      test: ["CMD", "curl", "-X", "GET", "localhost:8500/v1/status/leader"]
+      interval: 1s
+      timeout: 3s
+      retries: 60
+    networks:
+      - charitan-go
+
+networks:
+  charitan-go:
+    driver: bridge
+
+  
+
+
+
+

@@ -1,0 +1,35 @@
+services:
+  profile-server:
+    container_name: profile-server
+    image: charitan-go/profile-server
+    build: ../../profile-server
+    environment:
+      DB_HOST: profile-db
+      DB_NAME: profile
+      DB_USER: postgres
+      DB_PASSWORD: secret
+      DB_PORT: 5432
+      SERVICE_REGISTRY_URI: service-registry:8500
+      SERVICE_ID: profile-server
+      PORT: 8090
+    depends_on:
+      profile-db:
+        condition: service_healthy
+      service-registry:
+        condition: service_healthy
+    networks:
+      - charitan-go
+  profile-db:
+    image: postgres:alpine
+    container_name: profile-db
+    environment:
+      POSTGRES_DB: profile
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: secret
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -d profile -U postgres"]
+      interval: 1s
+      timeout: 3s
+      retries: 60
+    networks:
+      - charitan-go

@@ -1,0 +1,6 @@
+[submodule "auth-server"]
+	path = auth-server
+	url = git@github.com:charitan-go/auth-server.git
+[submodule "profile-server"]
+	path = profile-server
+	url = git@github.com:charitan-go/profile-server.git

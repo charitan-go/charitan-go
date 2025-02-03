@@ -1,0 +1,12 @@
+services:
+  charitan-api-gateway:
+    container_name: charitan-api-gateway
+    image: charitan-go/charitan-api-gateway
+    build: ../../charitan-api-gateway/
+    ports: 
+      - 8080:8080
+    networks:
+      - charitan-go
+    environment:
+      CONSUL_HOST: service-registry
+      CONSUL_PORT: 8500
