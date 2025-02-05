@@ -2,4 +2,4 @@
 
 docker buildx build -t charitan-go/auth-server auth-server
 
-# docker buildx build -t charitan-go/profile-server profile-server
+docker buildx build -t charitan-go/profile-server profile-server

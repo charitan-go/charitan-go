@@ -3,8 +3,8 @@ services:
     container_name: auth-server
     image: charitan-go/auth-server
     build: ../../auth-server
-    ports:
-      - 8090:8090
+    # ports:
+    #   - 8090:8090
     environment:
       DB_HOST: auth-db
       DB_NAME: auth
