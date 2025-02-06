@@ -7,6 +7,7 @@ services:
   service-registry:
     container_name: service-registry
     image: hashicorp/consul
+    # image: consul:1.15
     ports:
       - 8500:8500
     healthcheck:
