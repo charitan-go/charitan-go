@@ -7,3 +7,6 @@
 [submodule "charitan-api-gateway"]
   path = charitan-api-gateway  
   url = git@github.com:charitan-go/charitan-api-gateway.git
+[submodule "charitan-client"]
+	path = charitan-client
+	url = git@github.com:charitan-go/charitan-client.git
