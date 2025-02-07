@@ -1,2 +1,6 @@
 doc/
+secret/
+scripts/gen_key.sh
+
+*.env
 
