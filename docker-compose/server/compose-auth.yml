@@ -20,7 +20,7 @@ services:
         condition: service_healthy
     networks:
       - charitan-go
-    env_file: "../../.key.env"
+    # env_file: "../../.key.env"
   auth-db:
     image: postgres:alpine
     container_name: auth-db
