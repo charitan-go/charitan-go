@@ -10,3 +10,58 @@ services:
     environment:
       CONSUL_HOST: service-registry
       CONSUL_PORT: 8500
+
+
+
+# services:
+#   charitan-api-gateway-db:
+#     image: postgres:13
+#     container_name: charitan-api-gateway-db
+#     restart: always
+#     environment:
+#       POSTGRES_USER: postgres
+#       POSTGRES_DB: charitan-api-gateway-db
+#       POSTGRES_PASSWORD: secret
+#     networks:
+#       - charitan-go
+#
+#   charitan-api-gateway-migrations:
+#     image: kong/kong-gateway:3.4
+#     container_name: charitan-api-gateway-migrations
+#     command: kong migrations bootstrap
+#     environment:
+#       KONG_DATABASE: postgres
+#       KONG_PG_HOST: charitan-api-gateway-db
+#       KONG_PG_USER: postgres
+#       KONG_PG_PASSWORD: secret
+#     depends_on:
+#       - charitan-api-gateway-db
+#     networks:
+#       - charitan-go
+#
+#   charitan-api-gateway:
+#     image: kong/kong-gateway:3.4
+#     container_name: charitan-api-gateway
+#     restart: always
+#     depends_on:
+#       - charitan-api-gateway-migrations
+#       - charitan-api-gateway-db
+#     environment:
+#       KONG_DATABASE: postgres
+#       KONG_PG_HOST: charitan-api-gateway-db
+#       KONG_PG_USER: postgres
+#       KONG_PG_PASSWORD: secret
+#       KONG_PROXY_ACCESS_LOG: /dev/stdout
+#       KONG_ADMIN_ACCESS_LOG: /dev/stdout
+#       KONG_PROXY_ERROR_LOG: /dev/stderr
+#       KONG_ADMIN_ERROR_LOG: /dev/stderr
+#       KONG_ADMIN_LISTEN: 0.0.0.0:8001
+#       KONG_DECLARATIVE_CONFIG: /etc/kong/kong.yaml
+#     volumes:
+#       - ./kong.yaml:/etc/kong/kong.yaml
+#     ports:
+#       - "8000:8000"   # Public API Gateway
+#       - "8001:8001"   # Admin API
+#     networks:
+#       - charitan-go
+

@@ -1,0 +1,17 @@
+services:
+  vault:
+    image: hashicorp/vault:latest 
+    container_name: vault
+    environment:
+      VAULT_DEV_ROOT_TOKEN_ID: "root" # For development only
+    ports:
+      - 8200:8200
+    volumes:
+      - ./vault/config:/vault/config
+      - ./vault/data:/vault/data    
+    command: "server -dev -dev-root-token-id=root"
+    healthcheck:
+      test: ["CMD", "vault", "status"]
+      interval: 1s
+      timeout: 3s
+      retries: 60
