@@ -1,0 +1,40 @@
+services:
+  key-server:
+    container_name: key-server
+    image: charitan-go/key-server
+    build: ../../key-server
+    # ports:
+    #   - 8090:8090
+    environment:
+      # DB_HOST: key-db
+      # DB_NAME: key
+      # DB_USER: postgres
+      # DB_PASSWORD: secret
+      # DB_PORT: 5432
+      SERVICE_REGISTRY_URI: service-registry:8500
+      ADDRESS: key-server
+      # JWT_EXPIRATION_DURATION: 24h
+      # VAULT_ADDR: "http://vault:8200"
+      # VAULT_TOKEN: "key-server-token"
+    depends_on:
+      # key-db:
+      #   condition: service_healthy
+      service-registry:
+        condition: service_healthy
+    networks:
+      - charitan-go
+    # env_file: "../../.key.env"
+  # key-db:
+  #   image: postgres:alpine
+  #   container_name: key-db
+  #   environment:
+  #     POSTGRES_DB: key
+  #     POSTGRES_USER: postgres
+  #     POSTGRES_PASSWORD: secret
+  #   healthcheck:
+  #     test: ["CMD-SHELL", "pg_isready -d key -U postgres"]
+  #     interval: 1s
+  #     timeout: 3s
+  #     retries: 60
+  #   networks:
+  #     - charitan-go

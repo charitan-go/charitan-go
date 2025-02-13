@@ -10,3 +10,6 @@
 [submodule "charitan-client"]
 	path = charitan-client
 	url = git@github.com:charitan-go/charitan-client.git
+[submodule "key-server"]
+	path = key-server
+	url = git@github.com:charitan-go/key-server.git
