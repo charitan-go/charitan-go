@@ -1,0 +1,17 @@
+services:
+  message-broker:
+    container_name: message-broker
+    image: rabbitmq:3-management
+    ports:
+      - 5672:5672
+      - 15672:15672
+    environment:
+      RABBITMQ_DEFAULT_USER: rabbitmq
+      RABBITMQ_DEFAULT_PASS: secret
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "ping"]
+      interval: 1s
+      timeout: 3s
+      retries: 60
+    networks:
+      - charitan-go

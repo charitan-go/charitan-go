@@ -5,6 +5,7 @@ include:
   - ./api-gateway/compose-charitan-api-gateway.yml
   # - ./vault/compose-vault.yml
   - ./service-registry/compose-service-registry.yml
+  - ./message-broker/compose-message-broker.yml
 
 networks:
   charitan-go:
