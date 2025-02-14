@@ -14,8 +14,8 @@ services:
       SERVICE_REGISTRY_URI: service-registry:8500
       ADDRESS: auth-server
       JWT_EXPIRATION_DURATION: 24h
-      VAULT_ADDR: "http://vault:8200"
-      VAULT_TOKEN: "auth-server-token"
+      MESSAGE_BROKER_USER: rabbitmq
+      MESSAGE_BROKER_PASSWORD: secret
     depends_on:
       auth-db:
         condition: service_healthy
