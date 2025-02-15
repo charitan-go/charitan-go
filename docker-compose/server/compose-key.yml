@@ -8,6 +8,8 @@ services:
       ADDRESS: key-server
       MESSAGE_BROKER_USER: rabbitmq
       MESSAGE_BROKER_PASSWORD: secret
+      INIT_KEY_DURATION: 10s
+      ROTATE_KEY_DURATION: 1m
     depends_on:
       # key-db:
       #   condition: service_healthy
