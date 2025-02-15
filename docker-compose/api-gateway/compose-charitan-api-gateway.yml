@@ -10,6 +10,13 @@ services:
     environment:
       CONSUL_HOST: service-registry
       CONSUL_PORT: 8500
+      MESSAGE_BROKER_USER: rabbitmq
+      MESSAGE_BROKER_PASSWORD: secret
+    depends_on:
+      service-registry:
+        condition: service_healthy
+      message-broker:
+        condition: service_healthy
 
 
 
