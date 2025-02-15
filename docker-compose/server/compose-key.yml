@@ -16,6 +16,6 @@ services:
       message-broker:
         condition: service_healthy
       auth-server:
-        condition: service_healthy
+        condition: service_started
     networks:
       - charitan-go
