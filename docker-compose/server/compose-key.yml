@@ -9,7 +9,7 @@ services:
       MESSAGE_BROKER_USER: rabbitmq
       MESSAGE_BROKER_PASSWORD: secret
       INIT_KEY_DURATION: 15s
-      ROTATE_KEY_DURATION: 30s
+      ROTATE_KEY_DURATION: 1h
     depends_on:
       # key-db:
       #   condition: service_healthy
