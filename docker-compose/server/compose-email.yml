@@ -1,0 +1,38 @@
+services:
+  email-server:
+    container_name: email-server
+    image: charitan-go/email-server
+    build: ../../email-server
+    # ports:
+    #   - 8090:8090
+    environment:
+      SERVICE_REGISTRY_URI: service-registry:8500
+      ADDRESS: email-server
+      MESSAGE_BROKER_USER: rabbitmq
+      MESSAGE_BROKER_PASSWORD: secret
+    depends_on:
+      service-registry:
+        condition: service_healthy
+      message-broker:
+        condition: service_healthy
+    networks:
+      - charitan-go
+    # healthcheck:
+    #   test: ["CMD", "curl", "-f", "http://localhost:8090/health"]
+    #   interval: 1s
+    #   timeout: 3s
+    #   retries: 60
+  # email-db:
+  #   image: postgres:alpine
+  #   container_name: email-db
+  #   environment:
+  #     POSTGRES_DB: email
+  #     POSTGRES_USER: postgres
+  #     POSTGRES_PASSWORD: secret
+  #   healthcheck:
+  #     test: ["CMD-SHELL", "pg_isready -d email -U postgres"]
+  #     interval: 1s
+  #     timeout: 3s
+  #     retries: 60
+  #   networks:
+  #     - charitan-go

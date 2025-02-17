@@ -1,6 +1,7 @@
 include:
   - ./server/compose-profile.yml
   - ./server/compose-auth.yml
+  - ./server/compose-email.yml
   - ./server/compose-key.yml
   - ./api-gateway/compose-charitan-api-gateway.yml
   # - ./vault/compose-vault.yml
