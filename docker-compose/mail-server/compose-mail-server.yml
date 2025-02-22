@@ -1,0 +1,19 @@
+services:
+  mail-server:
+    container_name: mail-server
+    image: inbucket/inbucket
+    ports:
+      - 9000:9000
+      - 2500:2500
+      - 1100:1100
+    # environment:
+    #   RABBITMQ_DEFAULT_USER: rabbitmq
+    #   RABBITMQ_DEFAULT_PASS: secret
+    # healthcheck:
+    #   test: ["CMD", "rabbitmq-diagnostics", "ping"]
+    #   interval: 10s
+    #   timeout: 5s
+    #   retries: 10
+    networks:
+      - charitan-go
+

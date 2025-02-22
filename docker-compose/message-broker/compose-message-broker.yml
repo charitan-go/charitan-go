@@ -10,9 +10,9 @@ services:
       RABBITMQ_DEFAULT_PASS: secret
     healthcheck:
       test: ["CMD", "rabbitmq-diagnostics", "ping"]
-      interval: 1s
-      timeout: 3s
-      retries: 60
+      interval: 10s
+      timeout: 5s
+      retries: 10
     networks:
       - charitan-go
 
