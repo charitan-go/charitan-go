@@ -16,3 +16,6 @@
 [submodule "email-server"]
 	path = email-server
 	url = git@github.com:charitan-go/email-server.git
+[submodule "project-server"]
+	path = project-server
+	url = git@github.com:charitan-go/project-server.git

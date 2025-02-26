@@ -1,0 +1,46 @@
+services:
+  project-server:
+    container_name: project-server
+    image: charitan-go/project-server
+    build: ../../project-server
+    # ports:
+    #   - 8090:8090
+    environment:
+      DB_HOST: project-db
+      DB_NAME: project
+      DB_USER: postgres
+      DB_PASSWORD: secret
+      DB_PORT: 5432
+      SERVICE_REGISTRY_URI: service-registry:8500
+      ADDRESS: project-server
+      JWT_EXPIRATION_DURATION: 24h
+      MESSAGE_BROKER_USER: rabbitmq
+      MESSAGE_BROKER_PASSWORD: secret
+    depends_on:
+      project-db:
+        condition: service_healthy
+      service-registry:
+        condition: service_healthy
+      message-broker:
+        condition: service_healthy
+    networks:
+      - charitan-go
+    # healthcheck:
+    #   test: ["CMD", "curl", "-f", "http://localhost:8090/health"]
+    #   interval: 1s
+    #   timeout: 3s
+    #   retries: 60
+  project-db:
+    image: postgres:alpine
+    container_name: project-db
+    environment:
+      POSTGRES_DB: project
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: secret
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -d project -U postgres"]
+      interval: 1s
+      timeout: 3s
+      retries: 60
+    networks:
+      - charitan-go
