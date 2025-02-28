@@ -20,7 +20,7 @@ Since this project uses Git submodules, you need to clone the repository and ini
 
 ```bash
 # Clone the repository
-$ git clone --recurse-submodules https://github.com/your-username/CHARITAN-Go.git
+$ git clone --recurse-submodules https://github.com/charitan-go/charitan-go
 
 # If you have already cloned the repository without submodules, initialize them manually:
 $ git submodule update --init --recursive
