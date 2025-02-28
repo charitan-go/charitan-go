@@ -3,6 +3,7 @@ include:
   - ./api-gateway/compose-charitan-api-gateway.yml
   - ./service-registry/compose-service-registry.yml
   - ./message-broker/compose-message-broker.yml
+  - ./redis/compose-redis.yml
   - ./mail-server/compose-mail-server.yml
 
 networks:
