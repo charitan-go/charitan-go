@@ -1,6 +1,7 @@
 doc/
 secret/
 scripts/gen_key.sh
+object-storage/
 
 *.env
 
