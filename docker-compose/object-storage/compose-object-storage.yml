@@ -10,8 +10,8 @@ services:
       MINIO_ROOT_USER: minioadmin
       MINIO_ROOT_PASSWORD: minioadmin
     volumes:
-      - ./data1:/data1
-      - ./data2:/data2
+      - ../../object-storage/data1:/data1
+      - ../../object-storage/data2:/data2
     # healthcheck:
     # test: ["CMD", "mc", "ready", "local"]
     #   interval: 10s
