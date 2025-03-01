@@ -5,6 +5,7 @@ include:
   - ./message-broker/compose-message-broker.yml
   - ./redis/compose-redis.yml
   - ./mail-server/compose-mail-server.yml
+  - ./object-storage/compose-object-storage.yml
 
 networks:
   charitan-go:

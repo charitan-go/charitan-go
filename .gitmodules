@@ -22,3 +22,6 @@
 [submodule "notification-server"]
 	path = notification-server
 	url = git@github.com:charitan-go/notification-server.git
+[submodule "media-server"]
+	path = media-server
+	url = git@github.com:charitan-go/media-server.git
